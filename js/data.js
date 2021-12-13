@@ -129,18 +129,35 @@ const icons = [
 
 const container = document.querySelector('.container');
 
-icons.forEach((element) => {
-	const templateCard = `
-	 <div class="card ${element.type}">
-		<i class="${element.family} ${element.prefix}${element.name}" style = "color: ${element.color}"></i>
-		<h4>${element.name.toUpperCase()}</h4>
-	</div> 
-	`;
-	container.innerHTML += templateCard;
-});
+// icons.forEach((element) => {
+// 	const templateCard = `
+// 	 <div class="card ${element.type}">
+// 		<i class="${element.family} ${element.prefix}${element.name}" style = "color: ${element.color}"></i>
+// 		<h4>${element.name.toUpperCase()}</h4>
+// 	</div> 
+// 	`;
+// 	container.innerHTML += templateCard;
+// });
 
-const select = document.getElementById('select');
-console.log(select.value);
-const card = document.querySelectorAll('.card');
-if (select.value == 'animal') {
+// const card = document.querySelectorAll('.card');
+// if (select.value == 'animal') {
+// }
+
+function functionCardSelect() {
+	const select = document.getElementById('select');
+
+	icons.filter((element) => {
+		if (element.type == 'animal') {
+			container.innerHTML = '';
+			icons.forEach((element) => {
+				const templateCard = `
+				 <div class="card ${element.type}">
+					<i class="${element.family} ${element.prefix}${element.name}" style = "color: ${element.color}"></i>
+					<h4>${element.name.toUpperCase()}</h4>
+				</div> 
+				`;
+				container.innerHTML += templateCard;
+			})}
+	});
+	
 }
