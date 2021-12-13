@@ -128,24 +128,9 @@ const icons = [
 ];
 
 const container = document.querySelector('.container');
-
-// icons.forEach((element) => {
-// 	const templateCard = `
-// 	 <div class="card ${element.type}">
-// 		<i class="${element.family} ${element.prefix}${element.name}" style = "color: ${element.color}"></i>
-// 		<h4>${element.name.toUpperCase()}</h4>
-// 	</div> 
-// 	`;
-// 	container.innerHTML += templateCard;
-// });
-
-// const card = document.querySelectorAll('.card');
-// if (select.value == 'animal') {
-// }
-
+const select = document.getElementById('select');
 function functionCardSelect() {
 	container.innerHTML = '';
-	const select = document.getElementById('select');
 	const iconSelect = icons.filter((element) => {
 		if (select.value == 'animal') {
 			return element.type == 'animal';
@@ -168,3 +153,5 @@ function functionCardSelect() {
 	container.innerHTML += templateCard;
 });
 }	
+
+select.addEventListener('change', functionCardSelect);
