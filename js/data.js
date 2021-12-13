@@ -138,3 +138,9 @@ icons.forEach((element) => {
 	`;
 	container.innerHTML += templateCard;
 });
+
+const select = document.getElementById('select');
+console.log(select.value);
+const card = document.querySelectorAll('.card');
+if (select.value == 'animal') {
+}
