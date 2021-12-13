@@ -129,6 +129,16 @@ const icons = [
 
 const container = document.querySelector('.container');
 const select = document.getElementById('select');
+function optionPrint(select) {
+	const templateOption = `
+	<option value="all">All</option>
+	<option value="animal">animal</option>
+	<option value="vegetable">vegetable</option>
+	<option value="user">user</option>
+	`;
+	select.innerHTML += templateOption;
+}
+optionPrint(select);
 function functionCardSelect() {
 	container.innerHTML = '';
 	const iconSelect = icons.filter((element) => {
