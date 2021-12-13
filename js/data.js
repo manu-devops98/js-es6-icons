@@ -144,20 +144,27 @@ const container = document.querySelector('.container');
 // }
 
 function functionCardSelect() {
+	container.innerHTML = '';
 	const select = document.getElementById('select');
-
-	icons.filter((element) => {
-		if (element.type == 'animal') {
-			container.innerHTML = '';
-			icons.forEach((element) => {
-				const templateCard = `
-				 <div class="card ${element.type}">
-					<i class="${element.family} ${element.prefix}${element.name}" style = "color: ${element.color}"></i>
-					<h4>${element.name.toUpperCase()}</h4>
-				</div> 
-				`;
-				container.innerHTML += templateCard;
-			})}
+	const iconSelect = icons.filter((element) => {
+		if (select.value == 'animal') {
+			return element.type == 'animal';
+		} else if (select.value == 'vegetable') {
+			return element.type == 'vegetable';
+		} else if (select.value == 'user') {
+			return element.type == 'user';
+		} else if (select.value == 'all') {
+			return element;
+		}
 	});
-	
-}
+	console.log(iconSelect);
+	iconSelect.forEach((element) => {
+	const templateCard = `
+	 <div class="card ${element.type}">
+		<i class="${element.family} ${element.prefix}${element.name}" style = "color: ${element.color}"></i>
+		<h4>${element.name.toUpperCase()}</h4>
+	</div> 
+	`;
+	container.innerHTML += templateCard;
+});
+}	
